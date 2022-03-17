@@ -70,7 +70,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://github.com/BardsWork/live-portrait)
+[![Deep Nostalgia demonstration][product-screenshot]](https://github.com/BardsWork/live-portrait)
 
 I remember watching the Live portrait scene from Harry Potter, a long time ago, and just being mesmerized by the idea. Not in the movie sense, but thinking that maybe, we can have something similar in real life. 
 
@@ -102,28 +102,30 @@ Here are a few different versions I have found on instructables that hold your h
 
 ### Material List
 
-- Raspberry Pi
+- [Raspberry Pi](https://www.raspberrypi.com/products/)
+  - Any version of Raspberry Pi is technically usable but I would recommend at least Pi 2 as the original may be under powered. In my case, I used a Pi 2, Model B.
 - [RPI Display](https://www.amazon.com/gp/product/B08H8HZRLQ/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1) 
 	- Screen Dimensions: 194mm x 110mm x 20mm (including standoffs)
 	- Viewable screen size: 155mm x 86mm
-	- 
 - [Sonar Sensor](https://www.amazon.com/SunFounder-Ultrasonic-Distance-Duemilanove-Rapsberry/dp/B00E0NXTJW/ref=sr_1_3?crid=1STSTGBNHABY2&keywords=raspberry+pi+sonar&qid=1647537058&sprefix=raspberry+pi+sonar%2Caps%2C70&sr=8-3)
 	- HC-SR04 Distance Sensor to detect if someone approaches the display.
 - [Small Breadboard](https://www.adafruit.com/product/65?gclid=Cj0KCQjwuMuRBhCJARIsAHXdnqNBWZgG56fXo5GaRW447T3WEkhPY-iQbos_eT4XzDZ9KkuwlbOcBSQaAgNQEALw_wcB)
 	- I used the breadboard to connect HC-SR04 to the pie in a neat way. 
 	- OPTIONAL
-- external power supply
+- [Picture frame mat](https://www.amazon.com/White-Picture-Backing-Board-Uncut/dp/B08B14P861/ref=sr_1_3?crid=2J03HXFC9IAD0&keywords=picture+frame+mat&qid=1647540579&sprefix=picture+frame+mat%2Caps%2C77&sr=8-3)
+  - I purchased mine from Staples. I do suggest getting the uncut version so you can size it to your particular needs.
+- [Speaker Fabric](https://www.amazon.com/Speaker-Stereo-Fabric-Replacement-Speakers/dp/B07V69M6VG/ref=sr_1_3?crid=1ESC7H837U6DQ&keywords=speaker+fabric&qid=1647540631&sprefix=speaker+fabric%2Caps%2C62&sr=8-3)
+  - To clean up the apperance and cover the sonar, I used a speaker fabric to overlay on top of the picture frame.
+- External Power Supply
 - Misc wires, ties, tubes for installation
-- Picture frame mat
-- Speaker fabric
-- Wood
+- Wood & Tools, depending on which version of the frame you decide to build. 
 
 
 <br>
 
 ### Python Packages
 
-The only external package that I used for this project is `omxplayer-wrapper`, which can be found [HERE](https://github.com/willprice/python-omxplayer-wrapper). Otherwise, the only `RPi.GPIO` has to be imported within the sensor to recieve signal from the HC-SR04 module.
+The only external package that I used for this project is `omxplayer-wrapper`, which can be found [HERE](https://github.com/willprice/python-omxplayer-wrapper). Otherwise, the only `RPi.GPIO` and `time` are imported within the script files. There are fancier ways to achieve this but I chose the path of least resistance.
 
 
 <br>
@@ -140,6 +142,16 @@ The only external package that I used for this project is `omxplayer-wrapper`, w
 
 <br>
 
+_Basic connection diagram_
+![Raspberry-Pi Connection](docs/images/rpi-connection.png)
+
+The basic layout of the connection can be seen in the diagram above. Depending on the model of your board, pinout may be different. Please see image below for additional context and verify via the spec sheet that came with your version of Raspberry Pi.
+
+<br>
+
+_GPIO header pinout_
+
+![pinout](docs/images/header_pinout.jpg)
 
 <br>
 
