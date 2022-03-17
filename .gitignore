@@ -130,3 +130,5 @@ dmypy.json
 
 # IDE Specific
 .idea/
+
+.DS_Store
