@@ -1,5 +1,4 @@
-"""This file contains all the constants that are used in the main
-program for organization purposes.
+"""Sensor
 
 
 Args:
@@ -66,8 +65,7 @@ def calculate_distance():
     while GPIO.input(_PIN_ECHO) == 1:
         pulse_end_time = time.time()
 
-    # Formula: duration * sonic speed (34300 cm/s) divided by 2 .
-    # The division is because we have to consider its a round trip.
+    # Formula: duration * sonic speed (34300 cm/s) divided by 2 (round trip).
     return round((pulse_end_time - pulse_start_time) * 34300 / 2, 2)
 
 

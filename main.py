@@ -8,8 +8,8 @@ from src import player
 from pathlib import Path
 
 # VARIABLES
-VIDEO_PATH = Path("/home/pi/grandpa.mp4")  # Path to video
-DISTANCE_SENSITIVITY = 10  # Distance at which to trigger the video (in cm)
+VIDEO_PATH = Path("/home/pi/VIDEO.mp4")  # Path to video
+DISTANCE = 10  # Distance at which to trigger the video (in cm)
 
 
 def main():
@@ -20,7 +20,7 @@ def main():
             omx_player.pause()
             try:
                 calculated_distance = sensor.calculate_distance()
-                if calculated_distance <= DISTANCE_SENSITIVITY:
+                if calculated_distance <= DISTANCE:
                     omx_player.play()
                     time.sleep(omx_player.duration())
                 else:

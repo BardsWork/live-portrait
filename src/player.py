@@ -14,6 +14,7 @@ from omxplayer.player import OMXPlayer
 
 _PLAYER = None  # placeholder for OMX player
 _INIT = False
+_SLEEP = 0.55
 
 
 def initialize(path):
@@ -33,7 +34,7 @@ def initialize(path):
 
     # Sleep is here for the player to have enough time to load the video into the buffer.
     # Different videos may require different buffer time.
-    time.sleep(0.55)
+    time.sleep(_SLEEP)
     _INIT = True
 
     return _PLAYER

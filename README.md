@@ -20,10 +20,10 @@
 <br />
 <div align="center">
   <a href="https://github.com/BardsWork/live-portrait">
-    <img src="docs/images/portrait-icon.jpg" alt="Logo" width="128" height="128">
+    <img src="docs/images/logo.png" alt="Logo" width="256" height="256">
   </a>
 
-<h3 align="center">Stills that move</h3>
+<h3 align="center">A Living Portrait</h3>
 
   
 [View Demo][demo-url] · [Report Bug][issues-url] · [Request a Feature][issues-url]
@@ -38,26 +38,9 @@
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#about-the-project">About The Project</a></li>
-    <ul>
-        <li><a href="#instructables">Instructables</a></li>        
-        <li><a href="#material-list">Material List</a></li>
-        <li><a href="#python-packages">Python Packages</a></li>
-    </ul>
-    <li><a href="#electronics">Electronics</a></li>
-    <ul>        
-        <li><a href="#raspberry-pi">Raspberry Pi</a></li>
-        <li><a href="#connecting-components">Connecting Components</a></li>
-    </ul>
-    <li><a href="#frame">Frame</a></li>
-    <ul>        
-        <li><a href="#building-overview">Building Overview</a></li>
-        <li><a href="#option-greeks">...</a></li>
-    </ul>
+    <li><a href="#instructables">Instructables</a></li>        
+    <li><a href="#material-list">Material List</a></li>
     <li><a href="#code">Code</a></li>
-    <ul>        
-        <li><a href="#pyton script">Python Script</a></li>
-        <li><a href="#automating-on-startup">Automating on Startup</a></li>
-    </ul>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -72,15 +55,12 @@
 
 [![Deep Nostalgia demonstration][product-screenshot]](https://github.com/BardsWork/live-portrait)
 
-I remember watching the Live portrait scene from Harry Potter, a long time ago, and just being mesmerized by the idea. Not in the movie sense, but thinking that maybe, we can have something similar in real life. 
+This project aims to display a static image using a raspberry pi onto a display and animate it via [MyHeritage Deep Nostalgia](https://www.myheritage.com/deep-nostalgia) and a sonar/proximity sensor. The project is broken down into two parts:
 
-![Harry-Potter](docs/images/harry-potter.mp4)
+1. Building a raspberry powered picture frame.
+2. Tracking data from the sonar to play a video within a desired range and duration using a Python script.
 
-Once I saw the Deep Nostalgia posts circulating, I instantly knew what I wanted to build: A Harry Potter style Live Portrait.
-
-Generally, this project is fairly simple and I will link several instructables that provide a great overview of actually building the project from scratch, including different mounting, and display, options.
-
-The materials I used can be found below with an overview of how the building process.
+To not re-invent the wheel, I've included some Instructables tutorials that I've found which showcase the building of the picture frame. As there are several display options, I've chosen a wide gamut of display options. Personally, I've chosen a simple RPI display and just made a custom frame to suit my needs. I've included my own material list and included non-affiliated links.
 
 <br>
 
@@ -109,13 +89,13 @@ Here are a few different versions I have found on instructables that hold your h
 	- Viewable screen size: 155mm x 86mm
 - [Sonar Sensor](https://www.amazon.com/SunFounder-Ultrasonic-Distance-Duemilanove-Rapsberry/dp/B00E0NXTJW/ref=sr_1_3?crid=1STSTGBNHABY2&keywords=raspberry+pi+sonar&qid=1647537058&sprefix=raspberry+pi+sonar%2Caps%2C70&sr=8-3)
 	- HC-SR04 Distance Sensor to detect if someone approaches the display.
-- [Small Breadboard](https://www.adafruit.com/product/65?gclid=Cj0KCQjwuMuRBhCJARIsAHXdnqNBWZgG56fXo5GaRW447T3WEkhPY-iQbos_eT4XzDZ9KkuwlbOcBSQaAgNQEALw_wcB)
+- [Small Breadboard (Optional)](https://www.adafruit.com/product/65?gclid=Cj0KCQjwuMuRBhCJARIsAHXdnqNBWZgG56fXo5GaRW447T3WEkhPY-iQbos_eT4XzDZ9KkuwlbOcBSQaAgNQEALw_wcB)
 	- I used the breadboard to connect HC-SR04 to the pie in a neat way. 
 	- OPTIONAL
-- [Picture frame mat](https://www.amazon.com/White-Picture-Backing-Board-Uncut/dp/B08B14P861/ref=sr_1_3?crid=2J03HXFC9IAD0&keywords=picture+frame+mat&qid=1647540579&sprefix=picture+frame+mat%2Caps%2C77&sr=8-3)
+- [Picture frame mat (Optional)](https://www.amazon.com/White-Picture-Backing-Board-Uncut/dp/B08B14P861/ref=sr_1_3?crid=2J03HXFC9IAD0&keywords=picture+frame+mat&qid=1647540579&sprefix=picture+frame+mat%2Caps%2C77&sr=8-3)
   - I purchased mine from Staples. I do suggest getting the uncut version so you can size it to your particular needs.
-- [Speaker Fabric](https://www.amazon.com/Speaker-Stereo-Fabric-Replacement-Speakers/dp/B07V69M6VG/ref=sr_1_3?crid=1ESC7H837U6DQ&keywords=speaker+fabric&qid=1647540631&sprefix=speaker+fabric%2Caps%2C62&sr=8-3)
-  - To clean up the apperance and cover the sonar, I used a speaker fabric to overlay on top of the picture frame.
+- [Speaker Fabric (Optional)](https://www.amazon.com/Speaker-Stereo-Fabric-Replacement-Speakers/dp/B07V69M6VG/ref=sr_1_3?crid=1ESC7H837U6DQ&keywords=speaker+fabric&qid=1647540631&sprefix=speaker+fabric%2Caps%2C62&sr=8-3)
+  - To clean up the appearance and cover the sonar, I used a speaker fabric to overlay on top of the picture frame.
 - External Power Supply
 - Misc wires, ties, tubes for installation
 - Wood & Tools, depending on which version of the frame you decide to build. 
@@ -123,113 +103,36 @@ Here are a few different versions I have found on instructables that hold your h
 
 <br>
 
-### Python Packages
+### Code
 
-The only external package that I used for this project is `omxplayer-wrapper`, which can be found [HERE](https://github.com/willprice/python-omxplayer-wrapper). Otherwise, the only `RPi.GPIO` and `time` are imported within the script files. There are fancier ways to achieve this but I chose the path of least resistance.
+`omxplayer-wrapper`, which can be found [HERE](https://github.com/willprice/python-omxplayer-wrapper) is a wrapper for the native RPI video player. It was one of the simplest solutions to use but is a bit finicky, at times. 
 
-
-<br>
-
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
------------------------
+There are several variables that you have to adjust: 
 
 <br>
 
-<!-- ELECTRONICS -->
-## Electronics
+#### `main.py`
+
+`VIDEO_PATH` - the path of the video on the RPI. The first frame will be displayed as the static image.
+
+`DISTANCE` - the distance at which the auto-play will trigger, in centimeters.
 
 <br>
 
-_Basic connection diagram_
-![Raspberry-Pi Connection](docs/images/rpi-connection.png)
+#### `player.py`
 
-The basic layout of the connection can be seen in the diagram above. Depending on the model of your board, pinout may be different. Please see image below for additional context and verify via the spec sheet that came with your version of Raspberry Pi.
-
-<br>
-
-_GPIO header pinout_
-
-![pinout](docs/images/header_pinout.jpg)
+`_SLEEP` - a delay to allow the video to be loaded into the buffer on initialization. This may be obsolete in newer versions of RPI.
 
 <br>
 
-### Raspberry Pi
+#### `sensor.py`
+
+`_PIN_TRIGGER` - corresponds to the pin that monitors the sonar sensor. When a signal is detected within the provided distance, the video will play.
+
+`_PIN_ECHO` - corresponds to the pin that sends the signal to the sonar to actively monitor the surroundings.
 
 <br>
 
-
-
-<br>
-
-### Connecting Components
-
-<br>
-
-
-
-<br>
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
------------------------
-
-<br>
-
-<!-- FRAME -->
-## Frame
-
-<br>
-
-
-<br>
-
-### Building Overview
-
-<br>
-
-
-
-<br>
-
-### Connecting Components
-
-<br>
-
-
-
-<br>
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
------------------------
-
-<br>
-
-<!-- CODE -->
-## Code
-
-<br>
-
-
-<br>
-
-### Python Script
-
-<br>
-
-
-
-<br>
-
-### Automating on Startup
-
-<br>
-
-
-
-<br>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
